@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for&v-if</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    <div
+            v-for="(item,index) in arr"
+            :key="index"
+            v-if="item!=='b'"
+    >{{item}}
+    </div>-->
+        <div
+            v-for="(item,index) in tempArr"
+            :key="index"
+            v-if="item!=='b'"
+    >{{item}}
+    </div>
+</div>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            arr: ['a', 'b', 'c'],
+        },
+        computed: {
+            tempArr(){
+                return this.arr.filter(item=>item!=='b')
+            }
+        }
+    }).$mount();
+
+    /*
+    *   一、关于优先级
+    *   在vue源码中可以看到,编译过程里边,有个将模板转换为对象AST的函数parse,(内部的parseHTML函数)里
+    *   解析指令代码里面,分别按顺序执行for,if,once先关的函数
+    *   所以v-for优先级比v-if要高
+    *
+    *   二、如果同时会出现v-for和v-if的可能会出现的问题
+    *   因为v-for比v-if优先级高,所以在执行render函数时,函数内部执行diff算法任然会生成对应虚拟demo节点并且遍历节点
+    *   会出现浪费性能的问题
+    *
+    *   三、优化方案
+    *   既然render函数会根据数据做diff算法,那么只要过滤数据,在render函数执行之前去处理数据就好了
+    *   思路是,提前通过属性计算computed,过滤数据,dom执行v-for指令传入的数据,是属性计算提前处理过数据输出的结果
+    *   便可避免同时使用v-for和v-if产生的问题
+    *
+    *
+    *
+    * */
+
+
+</script>
+</body>
+</html>
