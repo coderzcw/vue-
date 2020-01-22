@@ -36,12 +36,18 @@
 
     /* 问题:Vue组件data选项为什么必须是个函数,而Vue的根实例则没有此限制?
     * 1.个人认为是为了避免子组件引用同一个对象,导致可能产生数据上的絮乱问题
-    * 2.依据可以看源码
+    * 2.依据可以看源码,为什么组件data选项需要传一个函数
     * ①在注册组件的过程中,内部就会有调用 Vue.extend ,创建一个可以实例化出子组件的构造函数    (Vue.extend 这个方法是在initGlobalAPI=>initExtend内部定义的)
     * ②创建子组件的构造函数时,Vue.extend 内部合并options的时候调用mergeOptions,会把子组件options所有key做遍历合并,把这个options作为静态属性挂载到子组件的构造函数上,方便实例化的时候引用
-    * ③在子组件实例化的过程中,内部会调用this._init,这个方法执行的时候,做options合并会调用resolveConstructorOptions方法
-    * ④resolveConstructorOptions方法内部调用mergeOptions做选项合并的时候会引用构造函数上的静态属性extendOptions做遍历合并
+    * ③在子组件实例化的过程中,内部会调用this._init,这个方法执行的时候,做options合并会调用initInternalComponent方法
+    * ④initInternalComponent方法内部做选项赋值的时候会直接把传入的options做赋值
     * ⑤所以多次实例化子组件,多个子组件内部的data仍然指向同一个对象,修改同个对象,同个构造函数实例化出来的子组件都会有数据的修改,不利于项目维护,
+    *
+    * 3.为什么根实例不需要传一个函数,从源码来看:
+    * ①.在Vue实例化的时候会调用init
+    * ②.init里面,合并选项的判断里面,如果判断是实例化非组件实例化,那么调用options合并的时候会传入vm,
+    * ③有传入vm,最终做判断的时候就不会有报错提示
+    *
     * 个人觉得Vue子组件的data选项需要是函数是为了提醒开发者注意这个问题,Vue根实例没有这个限制应该是因为一个项目一般只会用一个Vue根实例作为开发基础,
     * 另外要注意的是,即使Vue子组件的data选项即使已经是函数了,也应该是用工厂模式创建新对象,而不是使用单例模式,否则问题依旧会存在
     *

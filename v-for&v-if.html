@@ -47,13 +47,15 @@
             }
         }
     });
-
+    console.log(app.$options.render);
     /*
         问题:v-for和v-if的优先级哪个更高?如果v-for和v-if同时出现,可能会出现什么问题?如何可以优化这个问题
     *   一、关于优先级
     *   在vue源码中可以看到,编译过程里边,有个将模板转换为对象AST的函数parse,(内部的parseHTML函数)里
     *   解析指令代码里面,分别按顺序执行for,if,once先关的函数
-    *   在生成dom的阶段,会执行genElement函数,内部的fi else判断,for是在if之前判断的
+    *   在生成虚拟dom的阶段,会执行genElement函数,内部的if else判断,for是在if之前判断的
+    *
+    *   另外通过打印$options的render函数,看内部的返回值,也可以看到,在三目运算符里边,v-if判断条件是比v-for优先的,
     *   所以v-for优先级比v-if要高
     *
     *   二、如果同时会出现v-for和v-if的可能会出现的问题
