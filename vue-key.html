@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-key</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{time  }}
+</div>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            time:new Date().toLocaleTimeString()
+        },
+    });
+    setInterval(()=>{
+      app.time=  new Date().toLocaleTimeString()
+    },1000)
+
+
+    /*
+    * 问题: 你知道Vue的key的作用和工作原理吗?说说你对他的理解
+    *
+    * 首先Vue是一个典型的MVVM框架,所以我觉得在vue里面key的作用可以从MVVM框架层面介绍它的工作原理
+    * ①MVVM框架的基础分为,视图,数据,和处理视图数据交互的中间层
+    * ②VM会通过编译器编译dom模板里面的对应指令和语法,不同的指令和语法会触发不同的更新器,触发更新器也会对应实例化一个观察者,观察者根据传入不同的key,提供更新视图的方法
+    * ③数据层面,被响应式处理过的数据,内部key是经过用defineProperty做过数据劫持处理的,当触发getter,就会有对应key的一个dep对象,收集对应的观察者,每个key都对应一个dep,
+    * 触发setter就会调用对应观察者的更新函数触发视图更新
+    * ④所以key的作用应该是数据变更时,触发dom视图更新的关键因素,用于标记对应key变化时,应该触发哪个观察者的更新方法
+    * 原理的话上面已经描述了,当然,为了方便描述这个问题,上面说的过程忽略了不少细节,比如一个组件只有一个watcher,render函数,diff算法模板算法这些(借此引导面试官进坑提问,继续吹自己记得的牛逼..)
+    *
+    * */
+
+</script>
+
+</body>
+</html>
