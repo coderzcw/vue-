@@ -7,33 +7,32 @@
 </head>
 <body>
 <div id="app">
-    {{time  }}
+   <p v-for="item in items" :key="item">{{item}}</p>
+   <!--<p v-for="item in items">{{item}}</p>-->
 </div>
 
 <script>
     const app = new Vue({
         el: "#app",
         data: {
-            time:new Date().toLocaleTimeString()
+            items:['a','b','c','d']
         },
     });
-    setInterval(()=>{
-      app.time=  new Date().toLocaleTimeString()
+    setTimeout(()=>{
+        app.items.splice(2,0,'f')
     },1000)
 
 
     /*
     * 问题: 你知道Vue的key的作用和工作原理吗?说说你对他的理解
-    * 
-    * 首先Vue是一个典型的MVVM框架,所以我觉得在vue里面key的作用可以从MVVM框架层面介绍它的工作原理
-    * ①MVVM框架的基础分为,视图,数据,和处理视图数据交互的中间层
-    * ②VM会通过编译器编译dom模板里面的对应指令和语法,不同的指令和语法会触发不同的更新器,触发更新器也会对应实例化一个观察者,观察者根据传入不同的key,提供更新视图的方法
-    * ③数据层面,被响应式处理过的数据,内部key是经过用defineProperty做过数据劫持处理的,当触发getter,就会有对应key的一个dep对象,收集对应的观察者,每个key都对应一个dep,
-    * 触发setter就会调用对应观察者的更新函数触发视图更新
-    * ④所以key的作用应该是数据变更时,触发dom视图更新的关键因素,用于标记对应key变化时,应该触发哪个观察者的更新方法
-    * 原理的话上面已经描述了,当然,为了方便描述这个问题,上面说的过程忽略了不少细节,比如一个组件只有一个watcher,render函数,diff算法模板算法这些(借此引导面试官进坑提问,继续吹自己记得的牛逼..)
     *
-    * */
+    * key的作用主要是为了高效的更新虚拟dom,
+    * ①从源码分析,在做patch执行的时候,做节点对比的时候,会根据key标识去精准的判断是否同一个节点,避免频繁更新不同元素节点
+    * 从而使得patch的过程更加高效,减少dom操作,节省性能
+    * ②假设不用key,那么执行的时候,始终都认为是同一个阶段,列表更新的时候会引发一些隐蔽的BUG
+    * ③vue中使用同名标签元素的过渡切换时,也会用到key属性,目的也是为了让vue更好地区分元素,否则只会替换其内部属性而不会触发过渡效果
+    */
+
 
 </script>
 
