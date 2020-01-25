@@ -15,3 +15,8 @@
 
 - 你知道Vue的key的作用和工作原理吗?说说你对他的理解
 - 资源: vue-key.html
+
+### 问题4
+
+- 谈一下你对vue的组件化的理解?
+- 资源: components.html
