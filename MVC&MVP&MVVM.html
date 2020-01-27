@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC&MVP&MVVM</title>
+</head>
+<body>
+<script>
+    /* 问题: 谈谈你对MVC、MVP和MVVM的理解？
+    *
+    *   其实三种设计模式都涉及到数据M和视图V
+    *   主要说C,P,VM的区别
+    *   C是Controller,主要是视图驱动,用户通过视图触发事件,执行controller做处理得到数据,然后渲染模板
+    *   也有直接通过数据变化更新视图的,数据是单向流的,但是耦合度较高,MVC不利于程序调试
+    *
+    *   P是presenter,MVC和MVP其实差不多,主要MVP是会调用视图层的接口去渲染model,
+    *   这样就解耦了,并且方便调试了,缺点是如果UI过于复杂,需要提供的接口就非常的多了
+    *
+    *   VM是ViewModel,基于model,通过在vm中构建一组对应的状态数据,作为一个抽象的view,
+    *   通过数据双向绑定,让vm的数据和view的显示保持一致,解决了MVP在UI较为复杂的情况下,提供多接口的问题,
+    *   但也同时,如果本身UI就较简单,MVVM反而显得逻辑复杂了
+    *
+    * */
+</script>
+</body>
+</html>

@@ -20,3 +20,18 @@
 
 - 谈一下你对vue的组件化的理解?
 - 资源: components.html
+
+### 问题5
+
+- 你怎么理解vue中的diff算法？
+- 资源: vue-diff.html
+
+### 问题6
+
+- vue为什么要求组件模板只能有一个根元素？
+- 资源: oneRoot.html
+
+### 问题7
+
+- 谈谈你对MVC、MVP和MVVM的理解？
+- 资源: MVC&MVP&MVVM.html

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>oneRoot</title>
+</head>
+<body>
+<script>
+
+    /* 问题: vue为什么要求组件模板只能有一个根元素？
+    *   三个方面
+    *   ①vue的实例化根实例的时候,就指定了唯一一个元素作为容器
+    *   子组件也只能指定一个容器,否则mount的时候不知道应该,哪个节点才是应该挂载的容器
+    *   ②template下面的div是树状结构的根,遍历的时候需要有一个且唯一一个跟作为起始点
+    *   template是h5新增的标签,隐藏性,一直都不会显示,任意性,可以写在任何标签里面,无效性,标签内任何html都是无效且无任何作用的,只能通过innerHtml获取
+    *   并且通过import之后打印出来vue组件,会发现组件是一个vue的组件实例,
+    *   其实是通过load,会把vue文件转化为js,如果是有状态组件且有template的,遍历的话需要从一个节点开始遍历,
+    *   否则不知道从哪里开始遍历
+    *
+    *   ③diff算法要求,源码里面patch.js的patchVnode
+    *   在做diff算法的遍历的时候,是需要从一个根节点开始遍历的
+    *
+    * */
+</script>
+</body>
+</html>
