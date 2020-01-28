@@ -35,3 +35,8 @@
 
 - 谈谈你对MVC、MVP和MVVM的理解？
 - 资源: MVC&MVP&MVVM.html
+
+### 问题8
+
+- 谈谈你对vue组件之间通信的理解？
+- 资源: communication.html
