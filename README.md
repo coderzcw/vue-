@@ -28,15 +28,25 @@
 
 ### 问题6
 
+- 谈一下你对vue设计理念的理解?
+- 资源: VueDesignPhilosophy.html
+
+### 问题7
+
 - vue为什么要求组件模板只能有一个根元素？
 - 资源: oneRoot.html
 
-### 问题7
+### 问题8
 
 - 谈谈你对MVC、MVP和MVVM的理解？
 - 资源: MVC&MVP&MVVM.html
 
-### 问题8
+### 问题9
 
 - 谈谈你对vue组件之间通信的理解？
 - 资源: communication.html
+
+### 问题10
+
+- 你认为对vue的优化有些方式？
+- 资源: vueOptimize.html

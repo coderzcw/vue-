@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>vueOptimize</title>
+</head>
+<body>
+<script>
+
+    /*  问题: 你认为对vue的优化有些方式？
+        1.在for循环的时候为每一个item节点添加key
+        2.v-for和v-if避免一起使用
+        3.区分v-if和v-show的使用场景,v-if是控制是否会渲染,v-show是会渲染,控制是否会显示
+        4.区分属性计算computed的和数据监听watch的使用场景
+        computed是有缓存的,里面依赖发送改变获取下一次的结果才会更新,适用于对多个响应式值的监听
+        watch适用于观察某个值是否发送变化,有变化要做什么操作
+        5.长列表性能优化,Vue底层会通过遍历把对象变成响应式的,部分场景不需要响应式数据,只需要单纯展示,
+        可以手动把对象冻结,冻结后便不可被修改,也就是不会被变成响应式数据,调用Object.freeze(obj)方法冻结后赋值
+        6.手动添加的事件需要销毁,比如通过在created的时候,调用addEventListener添加的click,要在beforeDestroy的时候调用removeEventListener销毁事件
+        7.销毁组件,部分场景下,缓存的组件实例或者创建的组件实例,再不再需要情况下,要调用$destroy销毁自身
+        8.路由按需加载(懒加载),在非首页的或者非访问频率高的组件页面,可通过() => import('./home.vue')
+        9.第三方插件按需引入,不用引入整个库,基本大一点的库都可以提供按需引入的方式,例如element-ui;
+        10.一些优化用的第三方插件库,比如列表懒加载,图片懒加载等
+    *
+    *
+    *
+    * */
+
+</script>
+</body>
+</html>
