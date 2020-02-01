@@ -61,3 +61,8 @@
 
 - 问题:vue如果想扩展某个现有的组件时应该怎么做?
 - 资源: extends.html
+
+### 问题13
+
+- 问题:watch和computed的区别,以及怎么选用?
+- 资源: watch&computed.html
