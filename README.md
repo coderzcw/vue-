@@ -66,3 +66,8 @@
 
 - 问题:watch和computed的区别,以及怎么选用?
 - 资源: watch&computed.html
+
+### 问题14
+
+- 问题:谈谈你对vue生命周期的理解？
+- 资源: callHook.html
