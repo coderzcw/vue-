@@ -76,3 +76,8 @@
 
 - 问题: 谈谈你对vuex的使用和理解？
 - 资源: vuex.html
+
+### 问题16
+
+- 问题: 你知道nextTick的原理吗？
+- 资源: nextTick.html

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>nextTick</title>
+</head>
+<body>
+
+<script>
+    /*问题 : 你知道nextTick的原理吗？
+      这个涉及到vue里面异步任务的问题,nextTick的回调会被添加进入vue一个执行异步任务队列,在前面的异步任务执行完毕之后才执行
+      在源码层级,更新视图需要触发watcher的update,如果是异步任务触发的watcher的update,
+      会走进去queueWatcher,把这些异步任务的watcher加到异步任务队列中
+      然后判断环境,优先用微任务执行,然后用宏任务,逐渐降级,在同步任务执行完毕之后,最后会把任务队列里面watcher一个一个执行清空,
+      当然添加进去的时候会根据id去重判断
+      如果把异步任务放在nextTick里面作为回调,那么会确保是代码里面执行完毕了异步任务队列所有任务之后才执行的,确保执行时机
+
+    * */
+</script>
+</body>
+</html>
