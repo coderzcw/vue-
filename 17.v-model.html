@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+</head>
+<body>
+<script>
+    /*
+    问题 : 你知道vue双向数据绑定的原理吗？
+    回答: vue的双向数据绑定指令的其实是一个语法糖,拆分开来是value值的绑定和通过事件的反向赋值
+        普通节点的双向数据绑定,会在vnode对比完毕patch的时候做addEventListen的原生事件添加做反向赋值,
+        值绑定则是通过调用watcher去改变的,再深入一些,其实就是做diff比对的时候在dom更新的值
+
+        组件的事件绑定不同是在组件init的时候,在父节点拿到监听的事件并且保存,然后在patch的时候继续做addEventListen的原生事件添加做反向赋值
+
+
+  */
+</script>
+</body>
+</html>

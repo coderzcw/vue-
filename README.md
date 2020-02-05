@@ -81,3 +81,8 @@
 
 - 问题: 你知道nextTick的原理吗？
 - 资源: nextTick.html
+
+### 问题17
+
+- 问题: 你知道vue双向数据绑定的原理吗？
+- 资源: v-model.html
