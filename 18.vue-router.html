@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-router</title>
+</head>
+<body>
+<script>
+    /*  问题: vue-router导航钩子有哪些？
+    *
+    *   有全局和局部的导航钩子,
+    *   1.全局:
+    *   //①前置钩子,进入路由前做点什么
+    *   new VueRouter({ ... }).beforeEach((to, from, next) => {});
+    *   //②后置钩子,进入路由后做点什么
+    *   new VueRouter({ ... }).beforeEach((to, from, next) => {});
+    *   2.路由独享钩子
+    *   也分前置后置,在routes里面单独配置
+    *   3.组件内的导航钩子
+    *   ①beforeRouteEnter;进入该组件路由前被调用,此时实例未创建,无法访问this
+    *   ②beforeRouteUpdate;组件内复用的时候调用,可以访问当前组件实例this
+    *   ③beforeRouteLeave ;离开该组件对应路由调用,可以访问当前组件实例this
+    * */
+</script>
+</body>
+</html>

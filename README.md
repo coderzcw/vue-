@@ -86,3 +86,8 @@
 
 - 问题: 你知道vue双向数据绑定的原理吗？
 - 资源: v-model.html
+
+### 问题18
+
+- 问题: vue-router导航钩子有哪些？
+- 资源: vue-router.html
